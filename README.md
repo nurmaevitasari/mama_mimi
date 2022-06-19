@@ -1,2 +1,2 @@
 # mama_mimi
-Online Shop Mama Mili ( Tugas Ivana )
+Online Shop Mama Mimi ( Tugas Ivana )

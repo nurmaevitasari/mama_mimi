@@ -1,3 +1,19 @@
+<?php
+
+include ("connection.php");
+
+$customer = $conn->query("SELECT tbl_customer.*,tbl_customer_user.username,tbl_customer_user.password FROM tbl_customer
+								 					LEFT JOIN tbl_customer_user On tbl_customer_user.customer_id = tbl_customer.id
+								 					ORDER BY tbl_customer.id ASC ");
+
+$kategori = $conn->query("SELECT * FROM  tbl_kategori_produk ORDER BY id ASC");
+
+$produk = $conn->query("SELECT tbl_produk.*,tbl_kategori_produk.kategori FROM tbl_produk 
+											 LEFT JOIN tbl_kategori_produk ON tbl_kategori_produk.id = tbl_produk.kategori_produk 
+											 ORDER BY tbl_produk.id ASC");
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +43,8 @@
 
 	    <div id="home" class="tab-pane fade in active">
 	       <h3>Data Customer</h3>
-	      	<button class="btn btn-info pull-right" data-toggle="modal" data-target="#modalCustomer">Add Customer</button>
-	      	<br><br>
+	      	
+	      <br><br>
 		    <table class="table table-hover" id="tbl_cust">
 	      		<thead>
 		      		<td>ID</td>
@@ -36,8 +52,9 @@
 		      		<td>Alamat</td>
 		      		<td>Tlp</td>
 		      		<td>Email</td>
+		      		<td>Username</td>
 		      		<td>Password</td>
-		      		<td>Action</td>
+		      		<td>Date Created</td>
 	      		</thead>
 
 	      		<?php
@@ -47,23 +64,19 @@
 	      			foreach ($customer as $key => $cust) 
 	      			{?>
 	      				<tr>
-	      					<td><?php echo $cust['cus_id'];?></td>
-	      					<td><?php echo $cust['cus_nama'];?></td>
-	      					<td><?php echo $cust['cus_alamat'];?></td>
-	      					<td><?php echo $cust['cus_phone'];?></td>
-	      					<td><?php echo $cust['cus_mail'];?></td>
-	      					<td><?php echo $cust['cus_password'];?></td>
-	      					<td>
-	      						<a class="btn btn-danger" onclick="return confirm('Yakin Delete ID ini?');" href="<?php echo 'delete_customer_tugas_11.php?id='.$cust['cus_id'];?>">Delete</a>
-	      						<a class="btn btn-warning"  href="<?php echo 'edit_customer_tugas_11.php?id='.$cust['cus_id'];?>">Edit</a>
-	      					</td>
+	      					<td><?php echo $cust['id'];?></td>
+	      					<td><?php echo $cust['nama_customer'];?></td>
+	      					<td><?php echo $cust['alamat'];?></td>
+	      					<td><?php echo $cust['no_tlp'];?></td>
+	      					<td><?php echo $cust['email'];?></td>
+	      					<td><?php echo $cust['username'];?></td>
+	      					<td><?php echo $cust['password'];?></td>
+	      					<td><?php echo date('d-m-Y H:i:s',strtotime($cust['date_created']));?></td>
 	      				</tr>
 	      				
 	      			<?php }
 	      		}?>
 	      	</table>
-
-
     	</div>
 
     <div id="menu1" class="tab-pane fade">
@@ -77,8 +90,7 @@
 		      		<td>Satuan</td>
 		      		<td>Harga</td>
 		      		<td>Kode Kategori Produk</td>
-		      		<td>Photo</td>
-		      		<td></td>
+		      		<td>Action</td>
 	      		</thead>
 
 	      		<?php
@@ -88,15 +100,15 @@
 	      			foreach ($produk as $key => $produk) 
 	      			{?>
 	      				<tr>
-	      					<td><?php echo $produk['p_kode'];?></td>
-	      					<td><?php echo $produk['p_nama'];?></td>
-	      					<td><?php echo $produk['p_satuan'];?></td>
-	      					<td><?php echo "Rp.".number_format($produk['p_harga']);?></td>
-	      					<td><?php echo $produk['kp_nama'];?></td>
-	      					<td><?php echo $produk['p_photo'];?></td>
+	      					<td><?php echo $produk['kode_produk'];?></td>
+	      					<td><?php echo $produk['nama_produk'];?></td>
+	      					<td><?php echo $produk['satuan'];?></td>
+	      					<td><?php echo "Rp.".number_format($produk['harga']);?></td>
+	      					<td><?php echo $produk['kategori'];?></td>
 	      					<td>
-	      						<a class="btn btn-danger" onclick="return confirm('Yakin Delete ID ini?');" href="<?php echo 'delete_produk_tugas_11.php?id='.$produk['p_kode'];?>">Delete</a>
-	      						<a class="btn btn-warning"  href="<?php echo 'edit_produk_tugas_11.php?id='.$produk['p_kode'];?>">Edit</a>
+	      						<a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Delete ID ini?');" href="<?php echo 'delete_produk_tugas_11.php?id='.$produk['p_kode'];?>">Delete</a>
+	      						<a class="btn btn-warning btn-sm"  href="<?php echo 'edit_produk_tugas_11.php?id='.$produk['p_kode'];?>">Edit</a>
+	      						<a class="btn btn-primary btn-sm"  href="<?php echo 'detail_produk.php?id='.$produk['id'];?>">Detail</a>
 	      					</td>
 	      				</tr>
 	      				
@@ -122,16 +134,15 @@
 
 	      		<?php
 
-	      		if($katagoriproduk)
+	      		if($kategori)
 	      		{
-	      			foreach ($katagoriproduk as $key => $kat) 
+	      			foreach ($kategori as $key => $kat) 
 	      			{?>
 	      				<tr>
-	      					<td><?php echo $kat['kp_kode'];?></td>
-	      					<td><?php echo $kat['kp_nama'];?></td>
+	      					<td><?php echo $kat['id'];?></td>
+	      					<td><?php echo $kat['kategori'];?></td>
 	      					<td>
-	      						<a class="btn btn-danger" onclick="return confirm('Yakin Delete ID ini?');" href="<?php echo 'delete_kategori_produk_tugas_11.php?id='.$kat['kp_kode'];?>">Delete</a>
-	      						<a class="btn btn-warning"  href="<?php echo 'edit_kategori_produk_tugas_11.php?id='.$kat['kp_kode'];?>">Edit</a>
+	      						<a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Delete Kategori ID ini?');" href="<?php echo 'admin/delete_kategori.php?id='.$kat['kp_kode'];?>">Delete</a>
 	      					</td>
 	      				</tr>
 	      				
@@ -153,51 +164,6 @@
 
 <!-- MODAL -->
 
-<!-- POPUP ADD CUSTOMER -->
-<div class="modal fade" id="modalCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="add_customer_tugas_11.php" id="myform" method="POST">
-        	<div class="form-group">
-		      <label for="email">Nama:</label>
-		      <input type="text" class="form-control" placeholder="Nama Customer" name="cus_nama">
-    		</div>
-
-    		<div class="form-group">
-		      <label for="email">Alamat:</label>
-		      <input type="text" class="form-control" placeholder="Alamat" name="cus_alamat">
-    		</div>
-
-    		<div class="form-group">
-		      <label for="email">Phone:</label>
-		      <input type="text" class="form-control" placeholder="No Tlp" name="cus_tlp">
-    		</div>
-
-    		<div class="form-group">
-		      <label for="email">Email:</label>
-		      <input type="text" class="form-control" placeholder="E-mail" name="cus_email">
-    		</div>
-
-    		<div class="form-group">
-		      <label for="email">Password:</label>
-		      <input type="text" class="form-control" placeholder="Password" name="cus_password">
-    		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add Data</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- BATAS POP UP CUSTOMER -->
 
 <!-- POP UP ADD PRODUK -->
@@ -211,48 +177,49 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <form action="add_produk_tugas_11.php" id="myform" method="POST">
+		        <form action="add_produk.php" id="myform" method="POST" enctype="multipart/form-data" onsubmit="this.submit.disabled = true; this.submit.html = 'Uploading...'; ">
 		        	<div class="form-group">
 				      <label for="email">Kode Produk:</label>
-				      <input type="text" class="form-control" placeholder="Kode Produk" name="p_kode">
+				      <input type="text" class="form-control" placeholder="Kode Produk" name="kode_produk">
 		    		</div>
 
 		    		<div class="form-group">
 				      <label for="email">Nama:</label>
-				      <input type="text" class="form-control" placeholder="Nama" name="p_nama">
+				      <input type="text" class="form-control" placeholder="Nama" name="nama_produk">
 		    		</div>
 
 		    		<div class="form-group">
 				      <label for="email">Satuan:</label>
-				      <input type="text" class="form-control" placeholder="Satuan" name="p_satuan">
+				     	<select class="form-control" name="satuan">
+				      	<option value=''>--Pilih--</option>
+				      	<option value='Pcs'>Pcs</option>
+				      	<option value='Set'>Set</option>
+				      	<option value='Lusin'>Lusin</option>
+				      	<option value='Meter'>Meter</option>
+				      	</select>
 		    		</div>
 
 		    		<div class="form-group">
 				      <label for="email">Harga:</label>
-				      <input type="text" class="form-control" placeholder="Harga" name="p_harga">
+				      <input type="text" class="form-control" placeholder="Harga" name="harga">
 		    		</div>
 
 		    		<div class="form-group">
 				      <label for="email">Kode Katagori Produk:</label>
-				      <!-- <input type="text" class="form-control" placeholder="Kode Katagori Produk" name="p_kp_kode"> -->
-				      <select class="form-control" name="p_kp_kode">
+				      <select class="form-control" name="kategori_produk">
 				      	<option value=''>--Pilih--</option>
 				      	<?php 
-				      	foreach($katagoriproduk as $key => $kat) 
+				      	foreach($kategori as $key => $kat) 
 				      	{?>
-				      		<option value='<?php echo $kat['kp_kode'];?>'> <?php echo $kat['kp_nama'];?></option>
+				      		<option value='<?php echo $kat['id'];?>'> <?php echo $kat['kategori'];?></option>
 				      	<?php } ?>
-				      	
 				      </select>
 		    		</div>
 
 		    		 <div class="form-group">
 				      <label for="email">Photo:</label>
-				      <input type="text" class="form-control" placeholder="Photo" name="p_photo">
+				      <input type="file" class="form-control" placeholder="Photo" name="files[]" multiple="true">
 		    		</div>
-
-
-		        
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -276,20 +243,11 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <form action="add_katagori_produk_tugas_11.php" id="myform" method="POST">
-		        	<div class="form-group">
-				      <label for="email">Kode Produk:</label>
-				      <input type="text" class="form-control" placeholder="Kode Produk" name="kp_kode">
-		    		</div>
-
+		        <form action="add_kategori.php" id="myform" method="POST">
 		    		<div class="form-group">
-				      <label for="email">Nama:</label>
-				      <input type="text" class="form-control" placeholder="Nama" name="kp_nama">
+				      <label for="email">Kategori:</label>
+				      <input type="text" class="form-control" placeholder="Kategori" name="kategori">
 		    		</div>
-
-
-
-		        
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -308,15 +266,15 @@
 $(document).ready( function () 
 {
    $('#tbl_cust').dataTable( {
-  	"pageLength": 5
+  	"pageLength": 50
 	});
 
    $('#tbl_produk').dataTable( {
-  	"pageLength": 5
+  	"pageLength": 50
 	});
 
    $('#tbl_katagoriproduk').dataTable( {
-  	"pageLength": 5
+  	"pageLength": 50
 	});
 
 });

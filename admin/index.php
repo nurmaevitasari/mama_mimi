@@ -1,5 +1,5 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Snippet - GoSNippets</title>
+<title>Mama Mimi Admin</title>
 <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
 <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
 <script type='text/javascript' src=''></script>
@@ -7,8 +7,6 @@
 <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-<title>Hexashop Ecommerce HTML CSS Template</title>
 
 
 <!-- Additional CSS Files -->

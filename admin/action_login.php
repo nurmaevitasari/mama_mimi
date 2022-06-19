@@ -32,6 +32,9 @@ if($_POST)
 		$_SESSION["admin"]=$login;
 
 		header("Location:halaman_admin.php");
+	}else
+	{
+		header("Location:login_1.php");
 	}
 
 }
