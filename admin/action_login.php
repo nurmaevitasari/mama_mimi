@@ -11,6 +11,7 @@ if($_POST)
 
 	$password_hash = sha1(md5($password));
 
+
 	
 	$sql = $conn->query("SELECT * FROM tbl_admin
 		          		WHERE (username ='$username' AND password='$password_hash')");

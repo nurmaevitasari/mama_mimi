@@ -1,7 +1,24 @@
     
+<?php 
 
+include ("proses/connection.php");
+
+
+$wanita = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='1' ORDER BY id ASC LIMIT 5");
+
+$makeup = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='4' ORDER BY id ASC LIMIT 5");
+
+$pria = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='2' ORDER BY id ASC LIMIT 5");
+
+$anak = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='3' ORDER BY id ASC LIMIT 5");
+
+
+?>
     <?php include 'header.php';?>
     <!-- ***** Header Area End ***** -->
+
+
+
 
      <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
@@ -122,108 +139,53 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+
+         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+
+                           <?php 
+
+                           foreach ($pria as $key => $pr) 
+                           {
+                                $id_pr = $pr['id'];
+
+                                $photo = $conn->query("SELECT * FROM tbl_produk_photo WHERE 
+                                    produk_id='$id_pr' ORDER BY urutan ASC LIMIT 1");
+                                $photo = mysqli_fetch_assoc($photo);
+
+
+
+                            ?>
+                               
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
                                     </div>
-                                    <img src="assets/images/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                                    <div class="down-content">
+                                        <h4><?php echo $pr['nama_produk'];?></h4>
+                                        <span><?php echo "Rp.".number_format($pr['harga']);?></span>
+                                        
                                     </div>
-                                    <img src="assets/images/men-02.jpg" alt="">
                                 </div>
-                                <div class="down-content">
-                                    <h4>Air Force 1 X</h4>
-                                    <span>$90.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/men-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Love Nana ‘20</h4>
-                                    <span>$150.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/men-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                           <?php } ?>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </section>
     <!-- ***** Men Area Ends ***** -->
 
@@ -244,98 +206,41 @@
                 <div class="col-lg-12">
                     <div class="women-item-carousel">
                         <div class="owl-women-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+
+                           <?php 
+
+                           foreach ($wanita as $key => $wan) 
+                           {
+                                $id_wanita = $wan['id'];
+
+                                $photo = $conn->query("SELECT * FROM tbl_produk_photo WHERE 
+                                    produk_id='$id_wanita' ORDER BY urutan ASC LIMIT 1");
+                                $photo = mysqli_fetch_assoc($photo);
+
+
+
+                            ?>
+                               
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
                                     </div>
-                                    <img src="assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>New Green Jacket</h4>
-                                    <span>$75.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                                    <div class="down-content">
+                                        <h4><?php echo $wan['nama_produk'];?></h4>
+                                        <span><?php echo "Rp.".number_format($wan['harga']);?></span>
+                                        
                                     </div>
-                                    <img src="assets/images/women-02.jpg" alt="">
                                 </div>
-                                <div class="down-content">
-                                    <h4>Classic Dress</h4>
-                                    <span>$45.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/women-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Spring Collection</h4>
-                                    <span>$130.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/women-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                           <?php } ?>
+                            
                         </div>
                     </div>
                 </div>
@@ -356,103 +261,46 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="kid-item-carousel">
-                        <div class="owl-kid-item owl-carousel">
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+
+                           <?php 
+
+                           foreach ($anak as $key => $make) 
+                           {
+                                $id_make = $make['id'];
+
+                                $photo = $conn->query("SELECT * FROM tbl_produk_photo WHERE 
+                                    produk_id='$id_make' ORDER BY urutan ASC LIMIT 1");
+                                $photo = mysqli_fetch_assoc($photo);
+
+
+
+                            ?>
+                               
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
                                     </div>
-                                    <img src="assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>School Collection</h4>
-                                    <span>$80.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                                    <div class="down-content">
+                                        <h4><?php echo $make['nama_produk'];?></h4>
+                                        <span><?php echo "Rp.".number_format($make['harga']);?></span>
+                                        
                                     </div>
-                                    <img src="assets/images/kid-02.jpg" alt="">
                                 </div>
-                                <div class="down-content">
-                                    <h4>Summer Cap</h4>
-                                    <span>$12.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/kid-03.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Kid</h4>
-                                    <span>$30.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/images/kid-01.jpg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>Classic Spring</h4>
-                                    <span>$120.00</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                           <?php } ?>
+                            
                         </div>
                     </div>
                 </div>
@@ -460,6 +308,66 @@
         </div>
     </section>
     <!-- ***** Kids Area Ends ***** -->
+
+     <!-- ***** Makeup Area Starts ***** -->
+    <section class="section" id="women">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Meke Up Latest</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+
+                           <?php 
+
+                           foreach ($makeup as $key => $make) 
+                           {
+                                $id_make = $make['id'];
+
+                                $photo = $conn->query("SELECT * FROM tbl_produk_photo WHERE 
+                                    produk_id='$id_make' ORDER BY urutan ASC LIMIT 1");
+                                $photo = mysqli_fetch_assoc($photo);
+
+
+
+                            ?>
+                               
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4><?php echo $make['nama_produk'];?></h4>
+                                        <span><?php echo "Rp.".number_format($make['harga']);?></span>
+                                        
+                                    </div>
+                                </div>
+
+                           <?php } ?>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Women Area Ends ***** -->
 
     <!-- ***** Explore Area Starts ***** -->
     <section class="section" id="explore">
@@ -597,4 +505,4 @@
     </section>
     <!-- ***** Social Area Ends ***** -->
 
-    <?php include 'footer.php';?>
+    <!-- <?php include 'footer.php';?> -->

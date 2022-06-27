@@ -107,7 +107,7 @@ $produk = $conn->query("SELECT tbl_produk.*,tbl_kategori_produk.kategori FROM tb
 	      					<td><?php echo $produk['kategori'];?></td>
 	      					<td>
 	      						<a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Delete ID ini?');" href="<?php echo 'delete_produk_tugas_11.php?id='.$produk['p_kode'];?>">Delete</a>
-	      						<a class="btn btn-warning btn-sm"  href="<?php echo 'edit_produk_tugas_11.php?id='.$produk['p_kode'];?>">Edit</a>
+	      						
 	      						<a class="btn btn-primary btn-sm"  href="<?php echo 'detail_produk.php?id='.$produk['id'];?>">Detail</a>
 	      					</td>
 	      				</tr>

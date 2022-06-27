@@ -26,7 +26,12 @@ session_start();
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
-    </head>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
+
+
+
+">
     
     <body>
 
@@ -55,8 +60,8 @@ session_start();
 
                             if($_SESSION)
                             {
-                                
-                                if($_SESSION['user'])
+                 
+                                if(isset($_SESSION['user']))
                                 { ?>
                                 
                                     <li class="submenu">
@@ -100,8 +105,7 @@ session_start();
     </header>
     <!-- ***** Header Area End ***** -->
 
-
-     <!-- jQuery -->
+    <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->

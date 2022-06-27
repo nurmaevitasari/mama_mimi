@@ -42,7 +42,7 @@ if($_POST)
 
 				if($move_file) 
 				{
-				    $insert = $conn->query("INSERT tbl_produk_photo (produk_id,filename,urutan,date_created) VALUE ('$id_produk','$namaFile','0','$date_created')");
+				    $insert = $conn->query("INSERT tbl_produk_photo (produk_id,filename,urutan,date_created) VALUE ('$id_produk','$namaFile','1','$date_created')");
 				}
 	        }
 	    }
