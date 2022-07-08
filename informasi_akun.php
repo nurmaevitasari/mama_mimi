@@ -31,7 +31,7 @@ print_r($detail_cust);
                     </tr>
 
                     <tr>
-                        <td>Email</td>
+                        <td>Nama Customer</td>
                         <td>:</td>
                         <td><?php echo $detail_cust['nama_customer'];?></td>
                     </tr>

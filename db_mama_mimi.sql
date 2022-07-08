@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_mama_mimi`
+-- Database: `epiz_32093228_db_mama_mimi`
 --
 
 -- --------------------------------------------------------

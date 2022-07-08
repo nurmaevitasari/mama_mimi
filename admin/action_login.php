@@ -8,9 +8,7 @@ if($_POST)
 {	
 	$username = $_POST['uname'];
 	$password = $_POST['password'];
-
 	$password_hash = sha1(md5($password));
-
 
 	
 	$sql = $conn->query("SELECT * FROM tbl_admin
@@ -21,7 +19,6 @@ if($_POST)
 	
 	if(!empty($cek))
 	{
-		
 		session_start();
 
 		$login = array(

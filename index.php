@@ -164,12 +164,14 @@ $anak = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='3' ORDER
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="<?php echo 'detail_produk.php?id='.$pr['id'];?>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href=""><i class="fa fa-star"></i></a></li>
+                      
                                             </ul>
                                         </div>
+                                        <a target="_blank" href="<?php echo 'detail_produk.php?id='.$pr['id'];?>">
                                         <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
+                                        </a>
                                     </div>
                                     <div class="down-content">
                                         <h4><?php echo $pr['nama_produk'];?></h4>
@@ -225,12 +227,13 @@ $anak = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='3' ORDER
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a target="_blank" href="<?php echo 'detail_produk.php?id='.$wan['id'];?>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href=""><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
+                                        <a target="_blank" href="<?php echo 'detail_produk.php?id='.$wan['id'];?>">
                                         <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
+                                        </a>
                                     </div>
                                     <div class="down-content">
                                         <h4><?php echo $wan['nama_produk'];?></h4>
@@ -285,12 +288,13 @@ $anak = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='3' ORDER
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a target="_blank" href="<?php echo 'detail_produk.php?id='.$make['id'];?>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href=""><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
+                                        <a target="_blank" href="<?php echo 'detail_produk.php?id='.$make['id'];?>">
                                         <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
+                                        </a>
                                     </div>
                                     <div class="down-content">
                                         <h4><?php echo $make['nama_produk'];?></h4>
@@ -345,12 +349,13 @@ $anak = $conn->query("SELECT * FROM tbl_produk  WHERE kategori_produk ='3' ORDER
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a target="_blank" href="<?php echo 'detail_produk.php?id='.$make['id'];?>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href=""><i class="fa fa-star"></i></a></li>
                                             </ul>
                                         </div>
+                                        <a target="_blank" href="<?php echo 'detail_produk.php?id='.$make['id'];?>">
                                         <img src="assets/images/<?php echo $photo['filename'];?>" alt="">
+                                        </a>
                                     </div>
                                     <div class="down-content">
                                         <h4><?php echo $make['nama_produk'];?></h4>

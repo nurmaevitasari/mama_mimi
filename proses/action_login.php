@@ -14,7 +14,7 @@ if($_POST)
 
 	
 	$sql = $conn->query("SELECT cs.nama_customer,username,password,email,customer_id FROM tbl_customer cs
-		          		LEFT JOIN tbl_login_customer lgn ON lgn.customer_id = cs.id
+		          		LEFT JOIN tbl_customer_user lgn ON lgn.customer_id = cs.id
 		          		WHERE (email ='$username' AND password='$password_hash') OR (username='$username' AND password='$password_hash')");
 	$cek = mysqli_fetch_assoc($sql);
 

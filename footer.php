@@ -31,15 +31,15 @@
                     <div class="row">
                         <div class="col-6">
                             <ul>
-                                <li>Store Location:<br><span>Sunny Isles Beach, FL 33160, United States</span></li>
-                                <li>Phone:<br><span>010-020-0340</span></li>
-                                <li>Office Location:<br><span>North Miami Beach</span></li>
+                                <li>Store Location:<br><span>Puri Pamulang Blok i2</span></li>
+                                <li>Phone:<br><span>0819-0583-4728</span></li>
+                                <li>Office Location:<br><span>Tangerang Selatan</span></li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul>
                                 <li>Work Hours:<br><span>07:30 AM - 9:30 PM Daily</span></li>
-                                <li>Email:<br><span>info@company.com</span></li>
+                                <li>Email:<br><span>mamamimi@company.com</span></li>
                                 <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Behance</a>, <a href="#">Linkedin</a></span></li>
                             </ul>
                         </div>
@@ -57,12 +57,12 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="assets/images/logo_mama_mimi.png" alt="hexashop ecommerce templatemo">
                         </div>
                         <ul>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
-                            <li><a href="#">hexashop@company.com</a></li>
-                            <li><a href="#">010-020-0340</a></li>
+                            <li><a href="#">15415 Puri Pamulang Blok i2, NO.17, Tangerang Selatan</a></li>
+                            <li><a href="#">mamamimi@company.com</a></li>
+                            <li><a href="#">0819-0583-4728</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,16 +94,13 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved. 
+                        <p>Copyright © 2022 Mama Mimi Co., Ltd. All Rights Reserved. 
                         
-                        <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-
-                        <br>Distributed By: <a href="https://themewagon.com" target="_blank" title="free & premium responsive templates">ThemeWagon</a></p>
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-whatsapp"></i></li>
                         </ul>
                     </div>
                 </div>

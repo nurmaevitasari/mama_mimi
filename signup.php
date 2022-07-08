@@ -206,11 +206,25 @@
 <body oncontextmenu='return false' class='snippet-body'>
     <div class="wrapper bg-white">
       <div class="h2 text-center">Mama Mimi</div>
-        <div class="h4 text-muted text-center pt-2">Enter your login details</div>
-          <form class="pt-3" method="POST" action="proses/action_login.php">
+        <div class="h4 text-muted text-center pt-2">Enter your data</div>
+          <form class="pt-3" method="POST" action="proses/action_signup.php">
+
               <div class="form-group py-2">
-                  <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" placeholder="Username or Email Address" required class="" name="uname"> </div>
+                  <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" placeholder="Nama Lengkap" required class="nama_lengkap" name="nama_lengkap"> </div>
               </div>
+
+              <div class="form-group py-2">
+                  <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" placeholder="Username" required class="username" name="username"> </div>
+              </div>
+
+              <div class="form-group py-2">
+                  <div class="input-field">&nbsp;<span class="fas fa-envelope"></span>&nbsp;<input type="text" placeholder="Email" required class="" name="email"> </div>
+              </div>
+
+                <div class="form-group py-2">
+                  <div class="input-field"> &nbsp;<i class="fas fa-phone"></i>&nbsp; <input type="text" placeholder="No Telepon" required class="" name="no_tlp"> </div>
+              </div>
+
               <div class="form-group py-1 pb-2">
                   <div class="input-field"> <span class="fas fa-lock p-2"></span> 
                     <input type="Password" name="password" placeholder="Enter your Password" id="password" required> 
@@ -221,9 +235,9 @@
               </div>
               <div class="d-flex align-items-start">
                
-                  <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div>
-              </div> <button class="btn btn-block text-center my-3">Log in</button>
-              <div class="text-center pt-3 text-muted">Not a member? <a href="signup.php">Sign up</a></div>
+                 
+              </div> <button class="btn btn-block text-center my-3">Buat Akun</button>
+              
           </form>
         </div>
     </div>
@@ -246,6 +260,27 @@
           $('.icons').html('<i class="fas fa-eye-slash"></i>');
         }
       }
+
+
+      $('.username').click(function(e) 
+      {
+          var nama_lengkap = $('.nama_lengkap').val();
+          var username      = $('.username').val();
+
+          if(username =='')
+          {
+              $.ajax({
+                  url: "generate_uname.php",
+                  type: "POST",   
+                  data:  {nama_lengkap : nama_lengkap},       
+                  dataType: "JSON",
+                  success: function(data) 
+                  {
+                    $('.username').val(data);
+                  }
+              });
+          }
+      });
         
 </script>
 

@@ -50,10 +50,11 @@ session_start();
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="halaman_awal.php" class="active">Halaman Utama</a></li>
-                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                            <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                            <li class="scroll-to-section"><a href="index.php" class="active">Beranda</a></li>
+                            <li class="scroll-to-section"><a href="halaman_men.php">Men's</a></li>
+                            <li class="scroll-to-section"><a href="halaman_women.php">Women's</a></li>
+                            <li class="scroll-to-section"><a href="halaman_kids.php">Kid's</a></li>
+                            <li class="scroll-to-section"><a href="halaman_makeup.php">MakeUp</a></li>
     
                             <?php 
 
@@ -68,7 +69,7 @@ session_start();
                                     <a href="javascript:;"> <?php echo $_SESSION['user']['nama'];?> </a>
                                     <ul>
                                         <li><a href="informasi_akun.php">Akun Saya</a></li>
-                                        <li><a href="products.html">Pesanan</a></li>
+                                        <li><a href="halaman_chart.php">Keranjang Belanja</a></li>
                                     </ul>
                                     </li>
 
